@@ -16,7 +16,7 @@ const PaymentSchedule: React.FC<PaymentScheduleProps> = ({ result }) => {
   const renderScheduleItems = (items: PaymentScheduleItem[]) => {
     return items.map((item, index) => (
       <li key={index} className="mb-2">
-        {item.mortgageName}: {formatCurrency(item.amount)} per {item.paymentPeriod} for {item.periods} periods
+        {item.mortgageName}: {formatCurrency(item.amount)} {item.paymentPeriod} for {item.periods} periods
       </li>
     ));
   };
@@ -26,10 +26,10 @@ const PaymentSchedule: React.FC<PaymentScheduleProps> = ({ result }) => {
       <h2 className="text-2xl font-semibold mb-4">Payment Schedule</h2>
       <div className="mb-4">
         <p className="font-semibold">
-          Deposit required: {formatCurrency(result.deposit)}
+          Deposit required: {formatCurrency(result.deposit, 0)}
         </p>
         <p className="font-semibold">
-          Actual mortgage amount: {formatCurrency(result.actualMortgage)}
+          Actual mortgage amount: {formatCurrency(result.actualMortgage, 0)}
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
